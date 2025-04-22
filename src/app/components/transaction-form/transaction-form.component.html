@@ -1,0 +1,55 @@
+
+<div class="my-4">
+    <form [formGroup]="transactionForm" (ngSubmit)="addTransaction()">
+        <div class="flex items-center gap-4 text-[#333]">
+            <div class="flex flex-col gap-2">
+                <label for="type">Type</label>
+                <select name="" id="type" formControlName = "type"
+                class="w-36 border border-[#ccc] text-sm font-normal p-2 rounded focus:ring-0">
+                    <option value="">Select</option>
+                    <option value="Expense">Expense</option>
+                    <option value="Income">Income</option>
+                </select>
+            </div>
+            <div class="flex flex-col gap-2">
+                <label for="amount">Amount</label>
+                <input  type="number" placeholder="Amount" id="amount" formControlName = "amount"
+                class="w-24 border border-[#ccc] text-sm font-normal p-2 rounded focus:ring-0"/>
+            </div>
+            <div class="flex flex-col gap-2">
+                <label for="description">Description</label>
+                <input type="text" placeholder="Description"
+                 id="description" formControlName = "description"
+                    class="w-24 border border-[#ccc] text-sm font-normal p-2 rounded focus:ring-0" />
+            </div>
+            <div class="self-end">
+                <app-dropdown 
+                [items]="categories"
+                [labelFn]="labelCategory"
+                [valueFn]="valueCategory"
+                [control]="categoryControl">
+                </app-dropdown>
+            </div>
+            
+            <!-- <div class="flex flex-col gap-2">
+                <label for="category">Category</label>
+                <select name="" id="category" formControlName = "category"
+                class="border border-[#ccc] text-sm font-normal p-2 rounded focus:ring-0">
+                <option value="">Select</option>
+                @for(category of categories;track $index){
+                    <option [value]="category.catName">{{category.catName}}</option>
+                }
+                </select>
+            </div> -->
+            <div class="flex flex-col gap-2">
+                <label for="date">Date</label>
+                <input type="date" placeholder="date" id="date" formControlName = "date"
+                    class="border border-[#ccc] text-sm font-normal p-1.5 rounded focus:ring-0" />
+            </div>
+            <button type="submit" class="self-end bg-[#4F73F7] text-white
+             font-semibold flex items-center justify-center px-8 py-2 rounded">Add</button>
+        </div>
+    </form>
+    <!-- {{transactionForm.value | json}} -->
+
+</div>

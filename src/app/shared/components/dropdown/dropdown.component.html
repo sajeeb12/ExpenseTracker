@@ -1,0 +1,23 @@
+<button type="button" (click)="isDropdownOpen.set(!isDropdownOpen())"
+ class="relative w-[200px] bg-[#fcfcfc] text-[#333] border border-[#ddd]
+ px-8 py-2 rounded-md hover:bg-[#1a64a6] hover:text-[white]">
+    <!-- Select Job Role -->
+     {{selectedItem ? labelFn(selectedItem): 'Select Category' }}
+</button>
+@if(isDropdownOpen()){
+<div class="absolute z-10 top-40 mt-1 bg-white dropdown-shadow rounded-md 
+                            border border-[#DAE5EC]  px-2 py-3 w-[200px]">
+    @for(item of items; track valueFn(item)){
+        <app-radio-button [label]="labelFn(item)"
+            [control]="control"
+            [id]="valueFn(item)"
+            [value]="valueFn(item)"
+            (click) = "selectItem(item)"
+         >
+
+        </app-radio-button>
+    }
+</div>
+}
+
+

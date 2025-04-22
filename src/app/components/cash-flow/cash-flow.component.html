@@ -1,0 +1,64 @@
+<!-- <p>cash-flow works!</p> -->
+
+<div>
+    <div>
+        <div>
+
+        <form [formGroup]="filterForm">
+            <div class="flex items-center gap-5 ">
+                <div class="flex flex-col gap-2">
+                    <label for="category">Filter</label>
+                    <select name="" id="category"  formControlName="category"
+                    class="w-52 border border-[#ccc] text-sm font-normal p-2 rounded focus:ring-0">
+                        <option value="">Select</option>
+                        @for(category of categories;track $index){
+                            <option [value]="category.catName" 
+                            >{{category.catName}}</option>
+                        }
+                    </select>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="date">Date</label>
+                    <input type="date" placeholder="date" id="date"
+                        class="w-52 border border-[#ccc] text-sm 
+                        font-normal px-2 py-1.5 rounded focus:ring-0"
+                        formControlName="date" />
+                </div>
+                <button class="self-end  bg-[#4F73F7] text-white
+                font-semibold flex items-center justify-center px-8 py-1.5 rounded" 
+                (click)="resetFilter()">Clear Filter</button>
+            </div>
+        </form>
+        <div>
+            <app-tablet></app-tablet>
+        </div>
+        </div>
+        <!-- {{this.filterForm.value | json}} -->
+        <div class="my-6 mb-4 ">
+            <table class="table-auto w-full rounded overflow-hidden">
+                <thead class="bg-[#eee] border border-[#ccc]">
+                    <tr>
+                        <th class="">Description</th>
+                        <th class="px-4 py-3">Amount</th>
+                        <th class="px-4 py-3">Category</th>
+                        <th class="px-4 py-3">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(transaction of transactionList; track $index){
+                        <tr class="bg-white border border-[#ccc]">
+                        <td class="px-4 py-3 text-center">{{transaction.description}}</td>
+                        <td class="px-4 py-3 text-center">${{transaction.amount}}</td>
+                        <td class="px-4 py-3 text-center">{{transaction.category}}</td>
+                        <td class="px-4 py-3 text-center">{{transaction.date | date}}</td>
+                    </tr>
+                    }
+                    
+                </tbody>
+            </table>
+            <div class="text-end pt-4 text-[#1a64a6] font-semibold">
+                <p>Show Full List << </p>
+            </div>
+        </div>
+    </div>
+</div>

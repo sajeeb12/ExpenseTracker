@@ -1,0 +1,11 @@
+<div *ngIf="filter$ | async as filter">
+    <div *ngIf="filter.category" class="tablet">
+        Category: {{ filter.category }}
+        <button (click)="clearField('category')">❌</button>
+    </div>
+
+    <div *ngIf="filter.date" class="tablet">
+        Date: {{ filter.date }}
+        <button (click)="clearField('date')">❌</button>
+    </div>
+</div>

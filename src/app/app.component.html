@@ -1,0 +1,40 @@
+
+
+
+  <div class="bg-[#eee] min-h-screen  py-5">
+    <div class=" max-w-4xl bg-white mx-auto rounded shadow-md shadow-[gray] ">
+      <div class="px-5 py-4 ">
+        <h1 class="text-2xl font-semibold ">Expense Tracker</h1>
+        <div class="mb-8">
+          <app-transaction-form></app-transaction-form>
+        </div>
+        
+        <div class="my-4 flex  gap-6 ">
+          <div class="flex-1 flex flex-col gap-2.5 border border-[#ccc] px-5 py-3 rounded">
+            <p class="text-[#575757] text-sm">Total Income</p>
+            <p class="text-black font-bold text-2xl">${{totalIncome()}}</p>
+          </div>
+
+          <div class="flex-1 flex flex-col gap-2.5 border border-[#ccc] px-5 py-3 rounded">
+            <p class="text-[#575757] text-sm">Total Expense</p>
+            <p class="text-black font-bold text-2xl">${{totalExpense()}}</p>
+          </div>
+
+          <div class="flex-1 flex flex-col gap-2.5 border border-[#ccc] px-5 py-3 rounded">
+            <p class="text-[#575757] text-sm">Balance</p>
+            <p class="text-black font-bold text-2xl">
+              {{balance()>0 ? '$'+balance(): '-$' + -balance()}}</p>
+          </div>
+        </div>
+
+            <app-cash-flow [transactionList]="transactionList()"></app-cash-flow>
+
+        
+        
+      </div>
+  
+    </div>
+  </div>
+  
+
+
