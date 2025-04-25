@@ -88,7 +88,10 @@ export class CashFlowComponent implements OnInit{
   }
 
   resetFilter(){
-   const currentForm = this.filterForm.reset()
+   const currentForm = this.filterForm.reset({
+    category:'',
+    date:''
+   })
    this.formService.updateFilter(currentForm as unknown as Partial<Filter>)
   }
 
