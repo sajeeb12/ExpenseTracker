@@ -13,8 +13,8 @@ export interface category{
 }
 
 export interface Filter{
-    category:string,
-    date:string
+    category?:string,
+    date?:string
 }
 
 export interface dropdownData{

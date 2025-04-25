@@ -1,5 +1,9 @@
 <!-- <p>cash-flow works!</p> -->
-
+<!-- app.component.html -->
+<!-- <div *ngFor="let pair of keysWithValues">
+    {{ pair[1] }}
+    <button (click)="removeKeyValue(pair[0])">✖️</button>
+</div> -->
 <div>
     <div>
         <div>
@@ -62,3 +66,4 @@
         </div>
     </div>
 </div>
+<div>{{ filterForm.get('category')?.value }}</div>

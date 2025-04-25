@@ -18,12 +18,10 @@ export class AppComponent implements OnInit {
   title = 'expenseTracker';
   private expenseTrackerService = inject(ExpanseTrackerService)
   private destroyRef = inject(DestroyRef)
-  // balance = signal(0)
   totalIncome = signal(250)
   totalExpense = signal(180)
   transactionList = signal<transaction[]>([])
 
-  // maxId = Math.max(...this.transactionList().map(transaction => +transaction.id))
   filteredList = computed(() => this.transactionList().slice(-5))
 
   balance = computed(()=> this.totalIncome() - this.totalExpense())
